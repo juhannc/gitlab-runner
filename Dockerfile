@@ -3,14 +3,14 @@ MAINTAINER Johann Lange <johannlange@yahoo.de>
 
 # RUN apt-get update && && sudo apt-get upgrade && apt-get clean
 
-ENTRYPOINT gitlab-runner register \
+CMD gitlab-runner register \
   --non-interactive \
-  --url $url \
-  --registration-token $token \
+  --url $URL \
+  --registration-token $TOKEN \
   --executor "docker" \
-  --docker-image $image \
-  --description $name \
-  --tag-list $tags \
-  --run-untagged=$untagged \
-  --locked=$locked \
-  --access-level=$acces
+  --docker-image $IMAGE \
+  --description $DESCRIPTION \
+  --tag-list $TAGS \
+  --run-untagged=$RUN_UNTAGGED \
+  --locked=$LOCKED \
+  --access-level=$ACCESS_LEVEL
