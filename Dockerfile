@@ -1,7 +1,9 @@
 FROM gitlab/gitlab-runner
 MAINTAINER Johann Lange <johannlange@yahoo.de>
 
-RUN gitlab-runner register \
+# RUN apt-get update && && sudo apt-get upgrade && apt-get clean
+
+ENTRYPOINT gitlab-runner register \
   --non-interactive \
   --url $url \
   --registration-token $token \
