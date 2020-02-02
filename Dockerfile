@@ -17,4 +17,5 @@ ENTRYPOINT gitlab-runner register \
   --tag-list $TAGS \
   --run-untagged=$RUN_UNTAGGED \
   --locked=$LOCKED \
-  --access-level=$ACCESS_LEVEL
+  --access-level=$ACCESS_LEVEL && \
+  gitlab-runner run
