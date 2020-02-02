@@ -3,6 +3,7 @@ MAINTAINER Johann Lange <johannlange@yahoo.de>
 
 # RUN apt-get update && && sudo apt-get upgrade && apt-get clean
 
+# Register the gitlab-runner
 CMD gitlab-runner register \
   --non-interactive \
   --url $URL \
