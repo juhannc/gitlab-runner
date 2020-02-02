@@ -7,7 +7,7 @@ RUN apt-get install bash -y
 RUN apt-get clean
 
 # Register the gitlab-runner
-ENTRYPOINT gitlab-runner register \
+ENTRYPOINT echo $URL && echo $TOKEN && gitlab-runner register \
   --non-interactive \
   --url $URL \
   --registration-token $TOKEN \
