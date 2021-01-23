@@ -59,7 +59,7 @@ then
       --docker-image ${DOCKER_IMAGE} \
       --description ${DESCRIPTION} \
       --tag-list ${TAGS} \
-      --run-untagged $R{UN_UNTAGGED} \
+      --run-untagged ${RUN_UNTAGGED} \
       --locked ${LOCKED} \
       --access-level ${ACCESS_LEVEL}
   fi
