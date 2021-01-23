@@ -36,19 +36,33 @@ while [ $# -gt 0 ]; do
 done
 
 # Register the gitlab-runner
-if ! grep -q $URL /etc/gitlab-runner/config.toml;
+if ! grep -q ${URL} /etc/gitlab-runner/config.toml;
 then
-  gitlab-runner register \
-  --non-interactive \
-  --url $URL \
-  --registration-token $TOKEN \
-  --executor "docker" \
-  --docker-image $DOCKER_IMAGE \
-  --description $DESCRIPTION \
-  --tag-list $TAGS \
-  --run-untagged $RUN_UNTAGGED \
-  --locked $LOCKED \
-  --access-level $ACCESS_LEVEL
+  if [ -z "${TAGS}" ]; # tag-list is empty
+  then
+    gitlab-runner register \
+      --non-interactive \
+      --url ${URL} \
+      --registration-token ${TOKEN} \
+      --executor "docker" \
+      --docker-image ${DOCKER_IMAGE} \
+      --description ${DESCRIPTION} \
+      --run-untagged ${RUN_UNTAGGED} \
+      --locked ${LOCKED} \
+      --access-level ${ACCESS_LEVEL}
+  else
+    gitlab-runner register \
+      --non-interactive \
+      --url ${URL} \
+      --registration-token ${TOKEN} \
+      --executor "docker" \
+      --docker-image ${DOCKER_IMAGE} \
+      --description ${DESCRIPTION} \
+      --tag-list ${TAGS} \
+      --run-untagged $R{UN_UNTAGGED} \
+      --locked ${LOCKED} \
+      --access-level ${ACCESS_LEVEL}
+  fi
 fi
 
 # Run the runner
