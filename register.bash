@@ -46,9 +46,9 @@ then
   --docker-image $DOCKER_IMAGE \
   --description $DESCRIPTION \
   --tag-list $TAGS \
-  --run-untagged=$RUN_UNTAGGED \
-  --locked=$LOCKED \
-  --access-level=$ACCESS_LEVEL
+  --run-untagged $RUN_UNTAGGED \
+  --locked $LOCKED \
+  --access-level $ACCESS_LEVEL
 fi
 
 # Run the runner
