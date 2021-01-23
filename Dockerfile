@@ -7,7 +7,7 @@ ENTRYPOINT gitlab-runner register \
   --url $URL \
   --registration-token $TOKEN \
   --executor "docker" \
-  --docker-image $IMAGE \
+  --docker-image $DOCKER_IMAGE \
   --description $DESCRIPTION \
   --tag-list $TAGS \
   --run-untagged=$RUN_UNTAGGED \
