@@ -21,7 +21,7 @@ jobs:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: |
-        docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
+        docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD} --tag ${{secrets.DOCKER_USER}}/gitlab-runner
     - name: Build the Docker image
       run: docker build . --file Dockerfile
     - name: Publish Docker image to Docker Hub
